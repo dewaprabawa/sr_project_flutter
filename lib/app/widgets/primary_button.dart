@@ -5,38 +5,55 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PrimaryButton extends StatelessWidget {
-  PrimaryButton(
-    String? buttonText
-    ,{
+  const PrimaryButton({
     Key? key,
-    double? width,
-    double? height,
-    Color? backgroundColor,
-    BorderRadius? borderRadius,
-    Color? buttonTextColor,
+   required this.buttonText,
+   required this.width,
+   required this.height,
+   required this.backgroundColor,
+   required this.borderRadius,
+   required this.buttonTextColor,
+   this.onTap
   }) : super(key: key);
-  final Color backgroundColor = Colors.white;
-  late BorderRadius borderRadius = BorderRadius.circular(10);
-  late String buttonText = "Mulai";
-  late double width = double.infinity;
-  late double height = 50;
-  late Color buttonTextColor = Colors.black;
+  final Color backgroundColor;
+  final BorderRadius borderRadius;
+  final String buttonText;
+  final double width;
+  final double height;
+  final Color buttonTextColor;
+  final Function? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-         color: backgroundColor,
-        borderRadius: borderRadius),
-    
-      child: Text(
-        buttonText,
-        style: GoogleFonts.nunito(
-            color: buttonTextColor,
-            fontWeight: FontWeight.w800,
-            fontSize: ScreenUtil().setSp(18)),
+    return InkWell(
+      onTap: (){
+        onTap!();
+      },
+      child: Container(
+         margin: const EdgeInsets.symmetric(horizontal: 20),
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+             boxShadow: [
+                          BoxShadow(
+                          color: Colors.grey.withOpacity(0.1),
+                          offset: Offset(0,1),
+                          blurRadius: 0.5,
+                          spreadRadius: 0.5
+                        )
+                      ],
+           color: backgroundColor,
+          borderRadius: borderRadius),
+         
+        child: Center(
+          child: Text(
+            buttonText,
+            style: GoogleFonts.nunito(
+                color: buttonTextColor,
+                fontWeight: FontWeight.w600,
+                fontSize: ScreenUtil().setSp(18)),
+          ),
+        ),
       ),
     );
   }

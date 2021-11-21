@@ -61,59 +61,32 @@ class PreloadView extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                PrimaryButton(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/sign_up");
+                   
+                  },
                   width: double.infinity,
+                  backgroundColor: const Color(0xffFFDE6A),
+                  borderRadius: BorderRadius.circular(8),
+                  buttonText: 'Mulai',
                   height: ScreenUtil().setHeight(40),
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                        BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
-                        offset: Offset(0,1),
-                        blurRadius: 0.5,
-                        spreadRadius: 0.5
-                      )
-                    ],
-                      color: const Color(0xffFFDE6A),
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Center(
-                    child: Text(
-                      "Mulai",
-                      style: GoogleFonts.nunito(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w800,
-                          fontSize: ScreenUtil().setSp(18)),
-                    ),
-                  ),
+                  buttonTextColor: Colors.black,
                 ),
-                 const SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  PrimaryButton(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/sign_in");
+                  },
                   width: double.infinity,
+                  backgroundColor: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  buttonText: 'Saya sudah memiliki akun',
                   height: ScreenUtil().setHeight(40),
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
-                        offset: Offset(0,1),
-                        blurRadius: 0.5,
-                        spreadRadius: 0.5
-                      )
-                    ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Center(
-                    child: Text(
-                      "Saya sudah memiliki akun",
-                      style: GoogleFonts.nunito(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w800,
-                          fontSize: ScreenUtil().setSp(18)),
-                    ),
-                  ),
-                )
+                  buttonTextColor: Colors.black,
+                ),
               ],
             )
           ],
