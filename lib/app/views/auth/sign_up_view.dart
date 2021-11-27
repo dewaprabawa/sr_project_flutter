@@ -15,7 +15,7 @@ class SignUpView extends StatelessWidget {
     );
   }
 
-  Widget textFormField(String hintText) {
+  Widget textFormField(String hintText,{bool isRearIconEnable = false, Widget? rearWidget}) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -23,7 +23,7 @@ class SignUpView extends StatelessWidget {
         boxShadow: [
           BoxShadow(
               color: Colors.grey.withOpacity(0.1),
-              offset: Offset(0, 1),
+              offset: const Offset(0, 1),
               blurRadius: 0.5,
               spreadRadius: 0.5)
         ],
@@ -34,12 +34,19 @@ class SignUpView extends StatelessWidget {
         textInputAction: TextInputAction.next,
         style: UIFontStyles.textInputFont,
         decoration: InputDecoration(
+          suffixIcon: isRearIconEnable ? rearWidget : const SizedBox(),
           hintText: hintText,
           hintStyle: UIFontStyles.primaryButtonFont,
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
         ),
       ),
+    );
+  }
+
+   Widget imageIllustration() {
+    return Container(
+      child: Image.asset("assets/abstract-watchman.png", height: 200),
     );
   }
 
@@ -51,20 +58,34 @@ class SignUpView extends StatelessWidget {
           child: Scaffold(
         body: ListView(
           children: [
-            const SizedBox(
-                  height: 50,
-                ),
+               Padding(
+               padding: const EdgeInsets.only(left:20),
+               child: Row(children:  [
+               IconButton(onPressed: (){
+                 Navigator.pop(context);
+               }, icon: const Icon(Icons.arrow_back)),
+               ],),
+             ),  
+             imageIllustration(),
             Column(
               children: [
                 headerTitle(),
                 const SizedBox(
                   height: 20,
                 ),
-                textFormField("Alamat email"),
+                textFormField("Nama"),
                 const SizedBox(
                   height: 20,
                 ),
-                textFormField("Password"),
+                textFormField("Email"),
+                const SizedBox(
+                  height: 20,
+                ),
+                textFormField("Kata Sandi", isRearIconEnable: true, rearWidget: InkWell(onTap: (){
+
+                },
+                child: const Icon(Icons.visibility, color: Colors.grey,),
+                )),
                 const SizedBox(
                   height: 20,
                 ),
