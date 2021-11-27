@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sr_project_flutter/app/widgets/font_styles.dart';
 import 'package:sr_project_flutter/app/widgets/primary_button.dart';
 
 class PreloadView extends StatelessWidget {
@@ -9,21 +10,14 @@ class PreloadView extends StatelessWidget {
   Widget headerTitle() {
     return Text(
       "Hey! Selamat Datang",
-      style: GoogleFonts.nunito(
-          fontWeight: FontWeight.w800, fontSize: ScreenUtil().setSp(20)),
+      style: UIFontStyles.primaryHeaderFont,
     );
   }
 
   Widget subTitle() {
     return Text(
       "Aplikasi terbaik untuk memberikan perawatan serta kebutuhan medical pada hewan kesayangan anda.",
-      style: GoogleFonts.nunito(
-        fontWeight: FontWeight.w400,
-        fontSize: ScreenUtil().setSp(
-          18,
-        ),
-        color: Colors.grey,
-      ),
+      style: UIFontStyles.normalParagraphFont,
       textAlign: TextAlign.center,
     );
   }

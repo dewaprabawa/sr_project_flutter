@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sr_project_flutter/app/widgets/font_styles.dart';
 import 'package:sr_project_flutter/app/widgets/primary_button.dart';
+import 'package:sr_project_flutter/app/widgets/themes.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({Key? key}) : super(key: key);
@@ -9,8 +11,7 @@ class SignUpView extends StatelessWidget {
   Widget headerTitle() {
     return Text(
       "Silahkan buat akun baru anda",
-      style: GoogleFonts.nunito(
-          fontWeight: FontWeight.w800, fontSize: ScreenUtil().setSp(20)),
+      style: UIFontStyles.primaryHeaderFont,
     );
   }
 
@@ -31,10 +32,10 @@ class SignUpView extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
         textInputAction: TextInputAction.next,
-        style: GoogleFonts.nunito(fontSize: ScreenUtil().setSp(18)),
+        style: UIFontStyles.textInputFont,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: GoogleFonts.nunito(fontSize: ScreenUtil().setSp(15)),
+          hintStyle: UIFontStyles.primaryButtonFont,
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
         ),
@@ -71,15 +72,15 @@ class SignUpView extends StatelessWidget {
                     buttonText: "Buat akun",
                     width: double.infinity,
                     height: 40,
-                    backgroundColor: const Color(0xffFFDE6A),
+                    backgroundColor: UIcolor.primaryOrangeColor,
                     borderRadius: BorderRadius.circular(8),
-                    buttonTextColor: Colors.black),
+                    buttonTextColor: UIcolor.primaryBlack),
                 const SizedBox(
                   height: 20,
                 ),
                 TextButton(onPressed: (){
 
-                }, child: Text("Saya sudah mempunyai akun ?", style: GoogleFonts.nunito(fontSize: ScreenUtil().setSp(15), color: Colors.grey),))
+                }, child: Text("Saya sudah mempunyai akun ?", style: UIFontStyles.normalParagraphFont,))
               ],
             )
           ],

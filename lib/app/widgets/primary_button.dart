@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sr_project_flutter/app/widgets/font_styles.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -48,10 +49,7 @@ class PrimaryButton extends StatelessWidget {
         child: Center(
           child: Text(
             buttonText,
-            style: GoogleFonts.nunito(
-                color: buttonTextColor,
-                fontWeight: FontWeight.w600,
-                fontSize: ScreenUtil().setSp(18)),
+            style: UIFontStyles.primaryButtonFont.copyWith(color: buttonTextColor),
           ),
         ),
       ),
