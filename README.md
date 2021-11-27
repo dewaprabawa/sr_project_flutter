@@ -12,9 +12,12 @@
 * **Nanda Amanta** - *BACKEND PROGRAMMER* - [NandaAmanta](https://github.com/NandaAmanta)
 
 
-## License
+## Story
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Ini adalah start-up pertama kami, dengan nama SR, jujur belum ada nama pasti untuk nama aplikasi yang kami ingin rancang ini, dan juga ini adalah project personal kami, ada mimpi besar dari App ini yang nantinya model bisnisnya bisa berjalan serta menjadi contoh project dengan kualitas tinggi yang kami akan bangun dengan konsistensi, dedikasi tanpa batas, sertal kolaberasi bersama kawan-kawan lain yang tentu bisa memberikan masukan pada App kami. 
+
+# QUOTE - LIFE IS TOO SHORT TO BE LITTLE 
+
 # Preview 
 
 
