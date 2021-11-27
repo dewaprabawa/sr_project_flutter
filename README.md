@@ -1,10 +1,9 @@
 # sr_project_flutter
 
-![header](https://capsule-render.vercel.app/api?type=wave&color=gradient&height=300&section=footer&text=capsule%20render&fontSize=90)
+![header](https://capsule-render.vercel.app/api?type=wave&color=gradient&height=300&section=footer&text=SR%20PROJECT&fontSize=90)
 
-A SR Flutter project.
+### A SR Flutter project.
 
-### LET'S DO IT
 
 ## Version
 
