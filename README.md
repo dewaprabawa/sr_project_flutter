@@ -10,6 +10,7 @@
 
 * **Dewa Prabawa** - *MOBILE PROGRAMMER* - [dewaprabawa](https://github.com/dewaprabawa)
 * **Nanda Amanta** - *BACKEND PROGRAMMER* - [NandaAmanta](https://github.com/NandaAmanta)
+* yang lain akan bergabung segera!
 
 
 ## Story
