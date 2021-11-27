@@ -16,7 +16,7 @@
 
 Ini adalah start-up pertama kami, dengan nama SR, jujur belum ada nama pasti untuk nama aplikasi yang kami ingin rancang ini, dan juga ini adalah project personal kami, ada mimpi besar dari App ini yang nantinya model bisnisnya bisa berjalan serta menjadi contoh project dengan kualitas tinggi yang kami akan bangun dengan konsistensi, dedikasi tanpa batas, sertal kolaberasi bersama kawan-kawan lain yang tentu bisa memberikan masukan pada App kami. 
 
-# QUOTE - LIFE IS TOO SHORT TO BE LITTLE 
+QUOTE - LIFE IS TOO SHORT TO BE LITTLE 
 
 # Preview 
 
