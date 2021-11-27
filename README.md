@@ -17,10 +17,8 @@
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 # Preview 
 
-# PRELOA PAGE
+
 ![](https://github.com/dewaprabawa/sr_project_flutter/blob/master/sc_1.png) 
-# SIGNUP PAGE
 ![](https://github.com/dewaprabawa/sr_project_flutter/blob/master/sc_2.png) 
-# SIGNIN PAGE
 ![](https://github.com/dewaprabawa/sr_project_flutter/blob/master/sc_3.png) 
 
