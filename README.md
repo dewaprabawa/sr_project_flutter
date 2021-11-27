@@ -18,4 +18,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 # Preview 
 
 ![](https://github.com/dewaprabawa/sr_project_flutter/blob/master/sc_1.png) 
+![](https://github.com/dewaprabawa/sr_project_flutter/blob/master/sc_2.png) 
+![](https://github.com/dewaprabawa/sr_project_flutter/blob/master/sc_3.png) 
 
