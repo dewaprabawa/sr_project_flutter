@@ -11,6 +11,7 @@ A new Flutter project.
 ## Authors
 
 * **Dewa Prabawa** - *Initial work* - [dewaprabawa](https://github.com/dewaprabawa)
+* **Nanda Amanta** - *Initial work* - [dewaprabawa](https://github.com/NandaAmanta)
 
 
 ## License
