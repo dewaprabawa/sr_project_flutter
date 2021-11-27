@@ -14,7 +14,7 @@
 
 ## Story
 
-Ini adalah start-up pertama kami, dengan nama SR, jujur belum ada nama pasti untuk nama aplikasi yang kami ingin rancang ini, dan juga ini adalah project personal kami, ada mimpi besar dari App ini yang nantinya model bisnisnya bisa berjalan serta menjadi contoh project dengan kualitas tinggi yang kami akan bangun dengan konsistensi, dedikasi tanpa batas, sertal kolaberasi bersama kawan-kawan lain yang tentu bisa memberikan masukan pada App kami. 
+Ini adalah start-up pertama kami, dengan nama SR, jujur belum ada nama pasti untuk nama aplikasi yang ingin kami rancang ini, mungkin terkesan lucu, bikin start tanpa nama, begitukan. Tapi sebenarnya kami tidak perlu nama hari ini, kami hanya butuh memulai dahulu, kata sebuah buku ~ Just start! dan pada merek sneaker ternama ~ just do it. Serta ini adalah project personal kami, ada mimpi besar kami yang nantinya model bisnis yang telah direncanakan bisa berjalan serta menjadi contoh project dengan kualitas tinggi yang kami akan bangun dengan konsistensi, dedikasi dengan kesungguhan hati, sertal kolaberasi bersama kawan-kawan lain yang tentu bisa memberikan masukan pada App kami. 
 
 QUOTE - LIFE IS TOO SHORT TO BE LITTLE 
 
