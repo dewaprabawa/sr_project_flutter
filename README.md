@@ -8,8 +8,8 @@
 
 ## Authors
 
-* **Dewa Prabawa** - *Initial work* - [dewaprabawa](https://github.com/dewaprabawa)
-* **Nanda Amanta** - *Initial work* - [NandaAmanta](https://github.com/NandaAmanta)
+* **Dewa Prabawa** - *MOBILE PROGRAMMER* - [dewaprabawa](https://github.com/dewaprabawa)
+* **Nanda Amanta** - *BACKEND PROGRAMMER* - [NandaAmanta](https://github.com/NandaAmanta)
 
 
 ## License
