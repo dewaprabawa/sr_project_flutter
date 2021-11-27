@@ -2,9 +2,6 @@
 
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=footer&text=SR%20PROJECT&fontSize=90)
 
-### A SR Flutter project.
-
-
 ## Version
 
 1.0
