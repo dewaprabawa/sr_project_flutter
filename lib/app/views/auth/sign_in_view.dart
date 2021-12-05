@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sr_project_flutter/app/views/routes/router.dart';
 import 'package:sr_project_flutter/app/widgets/font_styles.dart';
 import 'package:sr_project_flutter/app/widgets/primary_button.dart';
 import 'package:sr_project_flutter/app/widgets/themes.dart';
@@ -10,7 +11,7 @@ class SignInView extends StatelessWidget {
 
   Widget headerTitle() {
     return Text(
-      "Masukan usernama dan kata sandi anda",
+      "Masukan email dan kata sandi anda",
       style: UIFontStyles.primaryHeaderFont,
       textAlign: TextAlign.center,
     );
@@ -109,7 +110,9 @@ class SignInView extends StatelessWidget {
                   height: 20,
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                       Navigators.pushReplacement(context, routename: ROUTENAME.sign_up);
+                    },
                     child: Text(
                       "Saya belum mempunyai akun ?",
                       style: UIFontStyles.normalParagraphFont,

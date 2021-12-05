@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sr_project_flutter/app/views/routes/router.dart';
 import 'package:sr_project_flutter/app/widgets/font_styles.dart';
 import 'package:sr_project_flutter/app/widgets/primary_button.dart';
 import 'package:sr_project_flutter/app/widgets/themes.dart';
@@ -100,7 +101,7 @@ class SignUpView extends StatelessWidget {
                   height: 20,
                 ),
                 TextButton(onPressed: (){
-
+                    Navigators.pushReplacement(context, routename: ROUTENAME.sign_in);
                 }, child: Text("Saya sudah mempunyai akun ?", style: UIFontStyles.normalParagraphFont,))
               ],
             )

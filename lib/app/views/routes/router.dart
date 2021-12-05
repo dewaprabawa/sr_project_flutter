@@ -22,3 +22,34 @@ class Router {
     }
   }
 }
+
+enum ROUTENAME{
+  root,
+  sign_in,
+  sign_up,
+}
+
+class Navigators{
+    static void pushNamed(BuildContext context,{required ROUTENAME routename, Object? arguments}){
+         Navigator.pushNamed(context, _stringRouteGenerator(routename), arguments: arguments);
+     }
+
+    static void pushReplacement(BuildContext context,{required ROUTENAME routename, Object? arguments}){
+         Navigator.pushReplacementNamed(context, _stringRouteGenerator(routename), arguments: arguments);
+     }
+
+      static void pushNamedAndRemoveUntil(BuildContext context,{required ROUTENAME routename, Object? arguments}){
+         Navigator.pushNamedAndRemoveUntil(context, _stringRouteGenerator(routename), (route) => false, arguments: arguments);
+     }  
+
+    static String _stringRouteGenerator(ROUTENAME routename){
+        switch(routename){
+          case ROUTENAME.root:
+             return "/";
+          case ROUTENAME.sign_in:
+             return "/sign_in";
+          case ROUTENAME.sign_up:
+             return "/sign_up";
+        }
+  }
+}
