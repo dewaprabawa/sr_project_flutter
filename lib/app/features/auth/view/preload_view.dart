@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sr_project_flutter/app/widgets/font_styles.dart';
 import 'package:sr_project_flutter/app/widgets/primary_button.dart';
 import 'package:sr_project_flutter/app/widgets/themes.dart';
+import 'package:bloc/bloc.dart';
 
 class PreloadView extends StatefulWidget {
   const PreloadView({Key? key}) : super(key: key);
@@ -34,54 +35,59 @@ class _PreloadViewState extends State<PreloadView> {
       color: Colors.white,
       child: SafeArea(
           child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-            buildPageViews(),
-            // buildDotIndicator(),
-          ],),
-        ),
+        body: buildPageViews(),
       )),
     );
   }
 
-  Widget buildDotIndicator(){
-    return Row(children: List.generate(2, (index){
-      return Container(
-        height: 10,
-        width: 10,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          color: UIcolor.primaryOrangeColor
-        ),
-      );
-    }),);
+  Widget buildDotIndicator() {
+    return Row(
+      children: List.generate(2, (index) {
+        return Container(
+          height: 10,
+          width: 10,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: UIcolor.primaryOrangeColor),
+        );
+      }),
+    );
   }
 
   Widget buildPageViews() {
     return SizedBox(
       child: PageView(
-        physics:
-            const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+        physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics()),
         controller: _pageController,
-        children: [ buildAdoptView(), buildAnimalNewsView(),buildActionPage(),],
+        children: [
+          buildAdoptView(),
+          buildAnimalNewsView(),
+          buildActionPage(),
+        ],
       ),
     );
   }
 
-  Widget buildAdoptView(){
-    return boardingView("adoption_animal.png", "Temukan hewan kesukaan anda dan menjadi adopter.","Adopsi Peliharaan");
+  Widget buildAdoptView() {
+    return boardingView(
+        "adoption_animal.png",
+        "Temukan hewan kesukaan anda dan menjadi adopter.",
+        "Adopsi Peliharaan");
   }
 
-   Widget buildAnimalNewsView(){
-    return boardingView("marginalia-1197.png", "Memulai peternakan anda dengan mudah sekarang.","Jaga ternak anda tetap sehat");
+  Widget buildAnimalNewsView() {
+    return boardingView(
+        "marginalia-1197.png",
+        "Memulai peternakan anda dengan mudah sekarang.",
+        "Jaga ternak anda tetap sehat");
   }
-
 
   Widget buildActionPage() {
-    return boardingView("illustration_doctor.png", "Aplikasi terbaik untuk memberikan perawatan serta kebutuhan medical pada hewan kesayangan anda.",
-       "Hey! Selamat Datang" ,
+    return boardingView(
+        "illustration_doctor.png",
+        "Aplikasi terbaik untuk memberikan perawatan serta kebutuhan medical pada hewan kesayangan anda.",
+        "Hey! Selamat Datang",
         widgets: [
           PrimaryButton(
             onTap: () {
@@ -111,7 +117,8 @@ class _PreloadViewState extends State<PreloadView> {
         ]);
   }
 
-  Widget boardingView(String image, String subtitle, String title, {List<Widget>? widgets}) {
+  Widget boardingView(String image, String subtitle, String title,
+      {List<Widget>? widgets}) {
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -131,7 +138,10 @@ class _PreloadViewState extends State<PreloadView> {
         const SizedBox(
           height: 30,
         ),
-        if(widgets != null) Column(children: widgets,)
+        if (widgets != null)
+          Column(
+            children: widgets,
+          )
       ],
     );
   }

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sr_project_flutter/app/views/auth/preload_view.dart';
-import 'package:sr_project_flutter/app/views/auth/sign_in_view.dart';
-import 'package:sr_project_flutter/app/views/auth/sign_up_view.dart';
+import 'package:sr_project_flutter/app/features/auth/view/preload_view.dart';
+import 'package:sr_project_flutter/app/features/auth/view/sign_in_view.dart';
+import 'package:sr_project_flutter/app/features/auth/view/sign_up_view.dart';
 
 class Router {
  static Route<dynamic> generateRoute(RouteSettings settings) {
