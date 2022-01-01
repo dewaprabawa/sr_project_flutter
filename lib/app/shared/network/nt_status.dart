@@ -1,7 +1,7 @@
 import 'package:connectivity/connectivity.dart';
 
-abstract class NetworkStatus {  
-  Future<ConnectivityResult> get isConnected;
+abstract class NetworkStatus {
+  Future<bool> get isConnected;
 }
 
 class NetworkStatusImpl implements NetworkStatus {
@@ -9,6 +9,16 @@ class NetworkStatusImpl implements NetworkStatus {
 
   NetworkStatusImpl(this.connectionChecker);
 
+  Future<bool> _isConnecting() async {
+    final connectionResult = await connectionChecker.checkConnectivity();
+    if (connectionResult == ConnectivityResult.mobile ||
+        connectionResult == ConnectivityResult.wifi) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
-  Future<ConnectivityResult> get isConnected => connectionChecker.checkConnectivity();
+  Future<bool> get isConnected => _isConnecting();
 }

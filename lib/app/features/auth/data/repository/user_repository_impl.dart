@@ -1,49 +1,61 @@
-
+import 'package:connectivity/connectivity.dart';
 import 'package:sr_project_flutter/app/features/auth/data/datasource/remote_user_data_source.dart';
 import 'package:sr_project_flutter/app/features/auth/data/models/app_user.dart';
 import 'package:sr_project_flutter/app/shared/helper/final_result.dart';
-
+import 'package:sr_project_flutter/app/shared/local/local_database.dart';
+import 'package:sr_project_flutter/app/shared/network/nt_status.dart';
+import 'package:sr_project_flutter/app/shared/exception/exception.dart';
 
 abstract class UserRepositoy {
-   Future<FinalResult> registerUser(AppUser user);
-   Future<FinalResult> login(String username, String password);
-   Future<FinalResult> getUser();
+  Future<FinalResult> registerUser(AppUser user);
+  Future<FinalResult> login(String username, String password);
+  Future<FinalResult> getUser();
 }
 
 class UserRepositoryImpl implements UserRepositoy {
-   
-  RemoteUserDataSourceImpl userRemoteDataSourceImpl;
+  final RemoteUserDataSourceImpl userRemoteDataSourceImpl;
+  final NetworkStatus networkStatus;
 
-  UserRepositoryImpl(this.userRemoteDataSourceImpl);
+  UserRepositoryImpl(this.userRemoteDataSourceImpl, this.networkStatus);
 
   @override
   Future<FinalResult<AppUser, String>> getUser() async {
-    try {
-      final data = await userRemoteDataSourceImpl.getUser();
-      return FinalResult(successResult: data);
-    } catch (e){
-      return FinalResult(errorResutl: e.toString());
+    if (await networkStatus.isConnected) {
+      try {
+        final appUser = await userRemoteDataSourceImpl.getUser();
+        LocalDatabase.insertUser(LocalDatabase.APP_USER_TABLE, appUser);
+        return FinalResult(successResult: appUser);
+      } catch (e) {
+        return FinalResult(errorResutl: e.toString());
+      }
+    } else {
+      try {
+        final localAppUser = await LocalDatabase.getAllData(LocalDatabase.APP_USER_TABLE);
+        return FinalResult(successResult: AppUser.fromJson(localAppUser!.first));
+      } on LocalDbExceptionimplements catch (e){
+        return FinalResult(errorResutl: e.toString());
+      }
     }
   }
 
   @override
-  Future<FinalResult<AppUser, String>> login(String username, String password) async {
-      try {
+  Future<FinalResult<AppUser, String>> login(
+      String username, String password) async {
+    try {
       final data = await userRemoteDataSourceImpl.login(username, password);
       return FinalResult(successResult: data);
-    } catch (e){
+    } catch (e) {
       return FinalResult(errorResutl: e.toString());
     }
   }
 
   @override
   Future<FinalResult> registerUser(AppUser user) async {
-        try {
+    try {
       final data = await userRemoteDataSourceImpl.registerUser(user);
       return FinalResult(successResult: data);
-    } catch (e){
+    } catch (e) {
       return FinalResult(errorResutl: e.toString());
     }
   }
-
 }
