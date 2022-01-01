@@ -1,5 +1,6 @@
 class FinalResult<T,E>{
+   bool success;
    T? successResult;
-   E? errorResutl;
-  FinalResult({this.successResult, this.errorResutl});
+   E? errorResult;
+  FinalResult({this.success = false, this.successResult, this.errorResult});
 }

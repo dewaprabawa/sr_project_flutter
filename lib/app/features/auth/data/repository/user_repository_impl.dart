@@ -24,16 +24,16 @@ class UserRepositoryImpl implements UserRepositoy {
       try {
         final appUser = await userRemoteDataSourceImpl.getUser();
         LocalDatabase.insertUser(LocalDatabase.APP_USER_TABLE, appUser);
-        return FinalResult(successResult: appUser);
+        return FinalResult(success: true, successResult: appUser);
       } catch (e) {
-        return FinalResult(errorResutl: e.toString());
+        return FinalResult(success: false, errorResult: e.toString());
       }
     } else {
       try {
         final localAppUser = await LocalDatabase.getAllData(LocalDatabase.APP_USER_TABLE);
-        return FinalResult(successResult: AppUser.fromJson(localAppUser!.first));
+        return FinalResult(success:true, successResult: AppUser.fromJson(localAppUser!.first));
       } on LocalDbExceptionimplements catch (e){
-        return FinalResult(errorResutl: e.toString());
+        return FinalResult(success: false, errorResult: e.toString());
       }
     }
   }
@@ -43,9 +43,9 @@ class UserRepositoryImpl implements UserRepositoy {
       String username, String password) async {
     try {
       final data = await userRemoteDataSourceImpl.login(username, password);
-      return FinalResult(successResult: data);
+      return FinalResult(success: true,successResult: data);
     } catch (e) {
-      return FinalResult(errorResutl: e.toString());
+      return FinalResult(success: false, errorResult: e.toString());
     }
   }
 
@@ -53,9 +53,9 @@ class UserRepositoryImpl implements UserRepositoy {
   Future<FinalResult> registerUser(AppUser user) async {
     try {
       final data = await userRemoteDataSourceImpl.registerUser(user);
-      return FinalResult(successResult: data);
+      return FinalResult(success: true, successResult: data);
     } catch (e) {
-      return FinalResult(errorResutl: e.toString());
+      return FinalResult(success: false, errorResult: e.toString());
     }
   }
 }

@@ -40,6 +40,8 @@ dependencies:
   flutter_screenutil: ^5.0.0+2
   connectivity: ^3.0.6
   sqflite: ^2.0.1
+  shared_preferences: ^2.0.11
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:

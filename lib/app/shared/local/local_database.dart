@@ -9,7 +9,8 @@ class LocalDatabase {
   static final APP_USER_TABLE = 'app_user';
   static final COLUMN_ID = 'id';
   static final COLUMN_HIT = 'hit';
-
+  
+  static final APP_USER_TOKEN_COLUMN = "app_token_username";
   static final APP_USER_USERNAME_COLUMN = 'app_user_username';
   static final APP_USER_EMAIL_COLUMN = 'app_user_email';
   static final APP_USER_ROLE_COLUMN = 'app_user_role';
@@ -38,6 +39,7 @@ class LocalDatabase {
   Future<void> _onCreate(Database db, int version) async {
     await db.execute('''
           CREATE TABLE $APP_USER_TABLE (
+            $APP_USER_TOKEN_COLUMN STRING NOT NULL
             $COLUMN_ID STRING NOT NULL,
             $APP_USER_USERNAME_COLUMN STRING NOT NULL,
             $APP_USER_EMAIL_COLUMN STRING NOT NULL,
@@ -59,6 +61,7 @@ class LocalDatabase {
     Database? db = await instance.database;
     var res = await db?.insert(table, {
       '$COLUMN_ID': appUser.id,
+      '$APP_USER_TOKEN_COLUMN' : appUser.token,
       '$APP_USER_USERNAME_COLUMN': appUser.username,
       '$APP_USER_EMAIL_COLUMN': appUser.email,
       '$APP_USER_ROLE_COLUMN': appUser.roles.last,
