@@ -46,9 +46,8 @@ class SignUpView extends StatelessWidget {
   }
 
    Widget imageIllustration() {
-    return Container(
-      child: Image.asset("assets/abstract-watchman.png", height: 200),
-    );
+    return Image.asset("assets/abstract-watchman.png", height: 200);
+    
   }
 
   @override
@@ -101,7 +100,7 @@ class SignUpView extends StatelessWidget {
                   height: 20,
                 ),
                 TextButton(onPressed: (){
-                    Navigators.pushReplacement(context, routename: ROUTENAME.sign_in);
+                    Navigators.pushReplacement(context, routename: ROUTENAME.SIGN_IN);
                 }, child: Text("Saya sudah mempunyai akun ?", style: UIFontStyles.normalParagraphFont,))
               ],
             )

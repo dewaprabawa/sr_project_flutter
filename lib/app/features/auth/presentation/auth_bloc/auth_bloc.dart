@@ -9,9 +9,14 @@ part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitial()) {
-    on<AuthEvent>((event, emit) {
+    on<AuthEvent>((event, emit) async {
       if(event is AppStarted){
-        emit(AuthInitial());
+        final token = await _loadToken("token");
+        if(token != null){
+           emit(Authenticated()); 
+        }else{
+           emit(Unauthenticated()); 
+        }
       }else if(event is LoggedIn){
         _saveToken(event.token);
         emit(Authenticated());
@@ -26,8 +31,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     await prefs.setString('token', token);
   }
 
-   Future<void> _loadToken(String token) async {
+   Future<String?> _loadToken(String token) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.getString("token");
+    return prefs.getString("token");
   }
 }
