@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sr_project_flutter/app/views/auth/preload_view.dart';
+import 'package:sr_project_flutter/app/features/auth/view/preload_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import './views/routes/router.dart' as sr;
 
