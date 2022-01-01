@@ -17,10 +17,7 @@ class Router {
       case '/sign_in':
         return CupertinoPageRoute(
             builder: (context) =>  BlocProvider(
-                  create: (context) => SignInCubit(
-                    sl(),
-                    BlocProvider.of<AuthBloc>(context, listen: false)
-                  ),
+                  create: (context) => sl<SignInCubit>(),
                   child: const SignInView(),
                 ));
       case "/sign_up":

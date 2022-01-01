@@ -28,7 +28,9 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        onTap!();
+        if(onTap != null){
+          onTap!();
+        }
       },
       child: Container(
          margin: const EdgeInsets.symmetric(horizontal: 20),
