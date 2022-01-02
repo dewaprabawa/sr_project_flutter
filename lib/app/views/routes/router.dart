@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sr_project_flutter/app/features/auth/presentation/auth_bloc/auth_bloc.dart';
 import 'package:sr_project_flutter/app/features/auth/presentation/sign_in_cubit/sign_in_cubit.dart';
 import 'package:sr_project_flutter/app/features/auth/presentation/view/auth_pages/preload_view.dart';
+import 'package:sr_project_flutter/app/features/auth/presentation/view/auth_pages/boarding_view.dart';
 import 'package:sr_project_flutter/app/features/auth/presentation/view/auth_pages/sign_in_view.dart';
 import 'package:sr_project_flutter/app/features/auth/presentation/view/auth_pages/sign_up_view.dart';
 import 'package:sr_project_flutter/app/features/auth/presentation/view/home/home_view.dart';
@@ -13,13 +14,10 @@ class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return CupertinoPageRoute(builder: (_) => const PreloadView());
+        return CupertinoPageRoute(builder: (_) => const BoardingView());
       case '/sign_in':
         return CupertinoPageRoute(
-            builder: (context) =>  BlocProvider(
-                  create: (context) => sl<SignInCubit>(),
-                  child: const SignInView(),
-                ));
+            builder: (_) =>  const SignInView());
       case "/sign_up":
         return CupertinoPageRoute(builder: (_) => const SignUpView());
       case "/home":
