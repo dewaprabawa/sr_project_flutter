@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:sr_project_flutter/app/features/auth/domain/entities/user_entitiy.dart';
 
 class AppUser extends UserEntity {
@@ -21,12 +23,15 @@ class AppUser extends UserEntity {
             countryCode: countryCode);
 
   factory AppUser.fromJson(Map<String, dynamic> json) {
+    
+    log("FROM_JSON" + json.toString());
+
     return AppUser(
-        token: json["token"],
+        token: json["accessToken"],
         id: json["id"],
         username: json["username"],
         email: json["email"],
-        roles: json["roles"],
+        roles: List<String>.from(json["roles"].map((x) => x)),
         profileImageUrl: json["profileImageUrl"],
         phoneNumber: json["phoneNumber"],
         countryCode: json["countryCode"]);
@@ -36,7 +41,6 @@ class AppUser extends UserEntity {
     return {
       "username": username,
       "email": email,
-      "roles": roles,
       "profileImageUrl": profileImageUrl,
       "phoneNumber": phoneNumber,
       "countryCode": countryCode

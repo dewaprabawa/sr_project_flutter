@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sr_project_flutter/app/features/auth/presentation/auth_bloc/auth_bloc.dart';
 import 'package:sr_project_flutter/app/features/auth/presentation/sign_in_cubit/sign_in_cubit.dart';
+import 'package:sr_project_flutter/app/features/auth/presentation/sign_up_cubit/sign_up_cubit.dart';
 import 'package:sr_project_flutter/app/views/routes/router.dart';
 import 'package:sr_project_flutter/app/widgets/font_styles.dart';
 import 'package:sr_project_flutter/app/widgets/primary_button.dart';
@@ -41,74 +43,82 @@ class _SignInViewState extends State<SignInView> {
       color: Colors.white,
       child: SafeArea(
           child: Scaffold(
-        body: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Row(
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(Icons.arrow_back)),
-                ],
+        body: BlocListener<SignInCubit, SignInState>(
+          listener: (context, state) {
+            if(state is SignUpFinishedState){
+              print("YESS TRUE");
+              Navigators.pushReplacement(context, routename: ROUTENAME.HOME);
+            }
+          },
+          child: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.arrow_back)),
+                  ],
+                ),
               ),
-            ),
-            imageIllustration(),
-            Column(
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                headerTitle(),
-                const SizedBox(
-                  height: 20,
-                ),
-                textFormField("Email", controller: usernameTextField),
-                const SizedBox(
-                  height: 20,
-                ),
-                textFormField("Kata Sandi",
-                    isRearIconEnable: true,
-                    rearWidget: InkWell(
-                      onTap: () {},
-                      child: const Icon(
-                        Icons.visibility,
-                        color: Colors.grey,
+              imageIllustration(),
+              Column(
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  headerTitle(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  textFormField("Email", controller: usernameTextField),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  textFormField("Kata Sandi",
+                      isRearIconEnable: true,
+                      rearWidget: InkWell(
+                        onTap: () {},
+                        child: const Icon(
+                          Icons.visibility,
+                          color: Colors.grey,
+                        ),
                       ),
-                    ),
-                    controller: passwordTextField),
-                const SizedBox(
-                  height: 20,
-                ),
-                PrimaryButton(
-                    onTap: () {
-                      BlocProvider.of<SignInCubit>(context, listen: false)
-                          .signIn(
-                              usernameTextField.text, passwordTextField.text);
-                    },
-                    buttonText: "Masuk",
-                    width: double.infinity,
-                    height: 40,
-                    backgroundColor: UIcolor.primaryOrangeColor,
-                    borderRadius: BorderRadius.circular(8),
-                    buttonTextColor: UIcolor.primaryBlack),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextButton(
-                    onPressed: () {
-                      Navigators.pushReplacement(context,
-                          routename: ROUTENAME.SIGN_UP);
-                    },
-                    child: Text(
-                      "Saya belum mempunyai akun ?",
-                      style: UIFontStyles.normalParagraphFont,
-                    ))
-              ],
-            )
-          ],
+                      controller: passwordTextField),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  PrimaryButton(
+                      onTap: () {
+                        BlocProvider.of<SignInCubit>(context, listen: false)
+                            .signIn(
+                                usernameTextField.text, passwordTextField.text);
+                      },
+                      buttonText: "Masuk",
+                      width: double.infinity,
+                      height: 40,
+                      backgroundColor: UIcolor.primaryOrangeColor,
+                      borderRadius: BorderRadius.circular(8),
+                      buttonTextColor: UIcolor.primaryBlack),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigators.pushReplacement(context,
+                            routename: ROUTENAME.SIGN_UP);
+                      },
+                      child: Text(
+                        "Saya belum mempunyai akun ?",
+                        style: UIFontStyles.normalParagraphFont,
+                      ))
+                ],
+              )
+            ],
+          ),
         ),
       )),
     );

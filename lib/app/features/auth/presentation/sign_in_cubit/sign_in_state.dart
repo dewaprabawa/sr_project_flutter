@@ -14,7 +14,7 @@ class SignInProcessingState extends SignInState {}
 class SignInErrorState extends SignInState {
   final String error;
 
-  SignInErrorState(this.error);
+  const SignInErrorState(this.error);
 
   @override
   List<Object> get props => [error];
